@@ -37,6 +37,11 @@
                 <version>${derby.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derbyshared</artifactId>
+                <version>${derby.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.ops4j.pax.jdbc</groupId>
                 <artifactId>pax-jdbc-common</artifactId>
                 <version>${pax.jdbc.version}</version>
