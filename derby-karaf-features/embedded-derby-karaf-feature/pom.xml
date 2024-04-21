@@ -16,10 +16,16 @@
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derbytools</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyshared</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -85,9 +91,14 @@
                     <instructions>
                         <Private-Package>
                             org.ops4j.pax.jdbc.common,
-                            org.apache.derby.jdbc
+                            org.apache.derby.jdbc.*,
                         </Private-Package>
                         <Import-Package>!org.apache.derby.client</Import-Package>
+                        <Embed-Dependency>
+                            derbytools,
+                            derbyshared,
+                            pax-jdbc-common
+                        </Embed-Dependency>
                     </instructions>
                 </configuration>
             </plugin>
