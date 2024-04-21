@@ -23,6 +23,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyshared</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.ops4j.pax.jdbc</groupId>
             <artifactId>pax-jdbc-common</artifactId>
             <scope>provided</scope>
@@ -85,9 +90,16 @@
                     <instructions>
                         <Private-Package>
                             org.ops4j.pax.jdbc.common,
-                            org.apache.derby.jdbc
+                            org.apache.derby.*
                         </Private-Package>
-                        <Import-Package>!org.apache.derby.client</Import-Package>
+                        <Import-Package>
+                            javax.sql,
+                            javax.naming.*,
+                            org.w3c.dom.*,
+                            org.osgi.framework,
+                            org.osgi.service.jdbc,
+                            !org.apache.derby.*
+                        </Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
